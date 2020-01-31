@@ -58,3 +58,10 @@ plt.xlabel('alpha')
 plt.ylabel('MSE')
 plt.savefig('lasso.png')
 plt.close()
+
+lasso=sklearn.linear_model.Lasso(alpha=0.5)
+lasso.fit(X_scaled,Y)
+ii = np.argsort(np.abs(lasso.coef_))
+print('Para LASSO: ')
+for i in ii:
+    print(columns[i], lasso.coef_[i])
